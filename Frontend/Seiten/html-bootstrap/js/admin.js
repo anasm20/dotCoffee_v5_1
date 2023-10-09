@@ -7,6 +7,19 @@ $(document).ready(() => {
     }
 })
 
+$(document).ready(() => {
+    /**
+     * If the user is not an admin, redirect to index.html
+     */
+    if (localStorage.getItem("user.type") != "admin") {
+        window.location.href = "index.html";
+    } else {
+        // Zeige die Seite, da der Benutzer ein Administrator ist
+        $("body").css("display", "block");
+    }
+});
+
+
 $(document).ready(function () {
     /**
      * fetch products and add them to the table
