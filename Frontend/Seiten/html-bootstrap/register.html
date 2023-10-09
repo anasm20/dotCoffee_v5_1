@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Das <head>-Tag im HTML stellt Informationen über das Dokument bereit, wie den Titel, die Zeichenkodierung, 
+            Stylesheets, Skripte und andere Informationen. -->
+    <meta charset="UTF-8" /><!-- Gibt die Zeichenkodierung für das Dokument an, in diesem Fall UTF-8.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Dies sagt dem Internet Explorer, die neueste Render-Engine zu verwenden. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Dies setzt den Viewport auf die Breite des Geräts.-->
+    <title>dotCoffee</title><!-- Titel des Dokumentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="js/userView.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="js/navbar.js"></script>
+    <link rel="shortcut icon" href="/Frontend/Img/coffee_logo/logo_v3">
+</head>
+
+
+
+
+<body style="background-color: #d1bfae;">
+    <header>
+        <div id="replace_with_navbar"></div>
+    </header>
+    <div class="title" style="text-align:center; color: #b15602;">
+        <h1>Wilkommen zur Registerungs Seite</h1>
+        <br>
+    </div>
+
+    <form action="./register_success.html" id="register-form">
+        <div class="container">
+            <div class="col-12">
+                <div class="alert alert-danger"  role="alert" id="register-error-alert">
+                    <p><small>check please your data !</small></p>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-6">
+                    <label for="firstname">Vorname</label>
+                    <input type="text" class="form-control" id="firstname" aria-describedby="vornameHelp"
+                        placeholder="Vorname einfügen" required>
+                    <small id="vornmeHelp" class="form-text text-muted"></small>
+                </div>
+                <div class="col-6">
+                    <label for="lastname">Nachname</label>
+                    <input type="text" class="form-control" id="lastname" aria-describedby="nachnameHelp"
+                        placeholder="Nachname einfügen" required>
+                    <small id="nachnameHelp" class="form-text text-muted"></small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="username">Benutzername</label>
+                    <input type="text" class="form-control" id="username"
+                        placeholder="Benutzername einfügen" required>
+                </div>
+                <div class="col-6">
+                    <label for="password">Passwort</label>
+                    <input type="password" class="form-control" id="password"
+                        placeholder="Passwort einfügen" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Email einfügen" required>
+                </div>
+            </div>
+            <br>
+            <div align="center">
+                <a href=#">
+                    <button class="btn btn-primary" id="btn-register">
+                        Registieren</button></a>
+                <a href="./login.html">
+                    <button type="button" class="btn btn-primary">Anmelden</button></a>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="replace_with_footer">
+                    <script src="js/navbar.js"></script>
+                    <script src="js/register.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
