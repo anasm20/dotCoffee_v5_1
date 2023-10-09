@@ -13,9 +13,14 @@ Es handelt sich um ein Open-Source-Projekt, sodass jeder den Code teilweise oder
 
 
 ### - Hier sind ein paar Ausschnitte über das Frontend der Website:
-![3_Shop](https://github.com/anasm20/Software_Lifecycle_Semesterprojekt/assets/122538784/8f58abd7-8210-45d9-8db0-a8c08b1225f3)
-![4_Registeren](https://github.com/anasm20/Software_Lifecycle_Semesterprojekt/assets/122538784/3153175e-c813-44d7-b8ad-2df739c16b7e)
-![5_Admin](https://github.com/anasm20/Software_Lifecycle_Semesterprojekt/assets/122538784/f4e378fc-7241-45eb-81b6-409f88b6f3d3)
+![Index](https://github.com/anasm20/dotCoffee_v5/assets/112882511/a6d765b1-787f-4f60-9646-dc55a0ae32dd)
+![Registerung](https://github.com/anasm20/dotCoffee_v5/assets/112882511/93a92413-d52d-487f-842b-761e9c553cb3)
+![Admin](https://github.com/anasm20/dotCoffee_v5/assets/112882511/5617a784-a968-4eae-a598-663ae5f408e6)
+![shop](https://github.com/anasm20/dotCoffee_v5/assets/112882511/cf440925-074f-4550-b13a-b77c099907ac)
+![ShoppingCart](https://github.com/anasm20/dotCoffee_v5/assets/112882511/264591c0-e498-4f36-aa3f-e5ad7266b3d1)
+
+
+
 
 # 2) Software Lifecycle Semesterprojekt
 Für dieses Projekt haben wir verschiedene Software - Lifecycle Methoden angewendet.
