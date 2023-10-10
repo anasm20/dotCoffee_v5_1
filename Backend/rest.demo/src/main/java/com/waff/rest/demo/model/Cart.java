@@ -22,6 +22,7 @@ public class Cart {
         joinColumns = @JoinColumn(name = "cart_id"),
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
+    // !!! TODO sammlung von ids, die keine doppelten Elemente erlaubt.
     private Set<Product> items = new HashSet<>();
 
     @Column(name = "costs")

@@ -111,7 +111,7 @@ public class WebSecurityConfig {
         }
 
         @Bean
-        // Creates a DaoAuthenticationProvider bean for authentication.
+        // Creates a DaoAuthenticationProvider (Data Access Object) bean for authentication.
         public DaoAuthenticationProvider daoAuthenticationProvider(UserDetailsService userDetailsService,
                         UserDetailsPasswordService userDetailsPasswordService) {
                 DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

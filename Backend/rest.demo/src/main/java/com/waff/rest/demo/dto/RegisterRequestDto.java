@@ -14,6 +14,7 @@ public class RegisterRequestDto {
     @Size(min=2, max=64)
     private String username;
 
+    // !!!!! TODO @ und .com validieren
     @Email
     private String email;
 

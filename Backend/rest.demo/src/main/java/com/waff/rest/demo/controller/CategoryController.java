@@ -15,6 +15,8 @@ import java.util.List;
 //  Controller class handling category-related endpoints in the webshop backend.
 @RestController
 @CrossOrigin("*")
+//in Spring Boot erlaubt kontrolliert, dass Webbrowser-Anfragen von einer bestimmten Domain zu Ihrer Anwendung gesendet werden können, 
+// indem es Cross-Origin Resource Sharing (CORS) konfiguriert und die Sicherheit Ihrer Anwendung bewahrt.
 public class CategoryController {
 
     private final CategoryService categoryService;

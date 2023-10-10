@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
+// DTO (Data Transfer Object) verwendet wird, um Daten zwischen verschiedenen Teilen einer Anwendung zu übertragen, 
+// insbesondere zwischen Client und Server. DTOs enthalten nur Daten, keine Logik,
+//  und erleichtern so die effiziente Datenübertragung in komplexen Anwendungen.
 
 public class CartDto {
     @NotNull

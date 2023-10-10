@@ -27,7 +27,7 @@ public class UserService {
 
 
     /**
-     * Get all users in the database.
+     * search all users in the database.
      * @return all users in the database.
      */
     public List<User> getUsers() {
@@ -35,7 +35,7 @@ public class UserService {
     }
 
     /**
-     * Get all user by giving userType.
+     * search all user by giving userType.
      * @param usertype usertype
      * @return all user by giving userType.
      */
@@ -45,7 +45,7 @@ public class UserService {
 
 
     /**
-     * Get user by giving userId.
+     * search user by giving userId.
      * @param id userId
      * @return user by giving userId.
      */

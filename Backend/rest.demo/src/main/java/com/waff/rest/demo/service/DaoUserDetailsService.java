@@ -28,6 +28,7 @@ public class DaoUserDetailsService implements UserDetailsService {
             return new DaoUserDetails(user);
         }
         else {
+            // gilt auch für passwort und nicht nur username
             throw new UsernameNotFoundException(username);
         }
     }

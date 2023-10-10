@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-// Configuraiton class for handling image resources in the web application
+// Configuraiton class for update resources in the web application
 
 @Configuration
 public class ImageResourceConfig implements WebMvcConfigurer {

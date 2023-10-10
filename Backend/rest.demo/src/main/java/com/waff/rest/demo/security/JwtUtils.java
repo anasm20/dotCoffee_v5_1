@@ -18,6 +18,8 @@ import io.jsonwebtoken.security.Keys;
 // Utility class for handling JSON Web Tokens (JWT) in the application.
 @Component
 public class JwtUtils {
+  // json web token
+  // erstellt eine nachricht auf der website falls der login nicht geklappt hat als json
   private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
   private String jwtSecret = "dsfdsfdsdslkjdfrtuecbc764i43fsdsze98fs87efs76wifs87doiufds87fdiu98grd9fd9fd";
