@@ -27,9 +27,11 @@ public class ProductDto {
 
     private String quantity;
 
+    // DEFAULT CONSTRUCTOR
     public ProductDto() {
     }
 
+    // GETTER & SETTER
     public String getId() {
         return id;
     }

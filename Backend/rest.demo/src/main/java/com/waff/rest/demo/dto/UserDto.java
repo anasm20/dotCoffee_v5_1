@@ -38,10 +38,12 @@ public class UserDto {
 
     private boolean enabled = true;
 
+    // Default constructor. Sets the user type to admin by default
     public UserDto() {
         this.userType = UserType.admin;
     }
 
+    // GETTER & SETTER
     public String getId() {
         return id;
     }

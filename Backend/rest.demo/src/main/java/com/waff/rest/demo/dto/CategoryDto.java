@@ -17,9 +17,10 @@ public class CategoryDto {
 
     private String imagePath;
 
+    // DEFAULT Constructor
     public CategoryDto() {
     }
-
+    // GETTER & SETTER
     public String getId() {
         return id;
     }

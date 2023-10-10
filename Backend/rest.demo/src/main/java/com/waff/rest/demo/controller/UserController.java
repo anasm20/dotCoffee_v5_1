@@ -24,11 +24,13 @@ public class UserController {
     }
 
     @GetMapping("/admin/user")
+    // Handles GET request to retrieve all users.
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userService.getUsers());
     }
 
     @PostMapping("/user")
+    // Handles POST request to create a new user.
     public ResponseEntity<User> createUser(@Valid @RequestBody UserDto userDto) {
         User user = modelMapper.map(userDto, User.class);
         User created = userService.createUser(user).orElse(null);
@@ -40,6 +42,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
+    // Handles GET request to retrieve a user by its ID.
     public ResponseEntity<?> getUserById(@PathVariable String id) {
         User user = userService.getUserById(id).orElse(null);
         if (user != null) {
@@ -50,6 +53,7 @@ public class UserController {
     }
 
     @PutMapping("/user/{id}")
+    // Handles PUT request to update an existing user.
     public ResponseEntity<User> updateUser(@Valid @RequestBody UserDto userDto) {        
         User user = modelMapper.map(userDto, User.class);
         User updated = userService.updateUser(user).orElse(null);
@@ -61,6 +65,7 @@ public class UserController {
     }
 
     @DeleteMapping("/admin/user/{id}")
+    // Handles DELETE request to delete a user by its ID.
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         if (userService.deleteUserById(id)) {
             return ResponseEntity.ok().build();
@@ -70,12 +75,14 @@ public class UserController {
     }
 
     @GetMapping("/admin/user/user_type/{userType}")
+    // Handles GET request to retrieve users by their user type.
     public ResponseEntity<List<User>> findUsersByType(@PathVariable UserType userType) {
         return ResponseEntity.ok(userService.getUserByUserType(userType));
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    // Handles GET request for finding all users with ROLE_ADMIN.
     public List<User> findAll() {
         return userService.getUsers();
     }

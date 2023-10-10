@@ -22,6 +22,7 @@ import java.util.Arrays;
 import static com.waff.rest.demo.model.UserType.admin;
 import static com.waff.rest.demo.model.UserType.user;
 
+// Configuration class for defining web security settings and access control.
 @Configuration
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig {
@@ -110,6 +111,7 @@ public class WebSecurityConfig {
         }
 
         @Bean
+        // Creates a DaoAuthenticationProvider bean for authentication.
         public DaoAuthenticationProvider daoAuthenticationProvider(UserDetailsService userDetailsService,
                         UserDetailsPasswordService userDetailsPasswordService) {
                 DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -120,11 +122,13 @@ public class WebSecurityConfig {
         }
 
         @Bean
+        // Creates a BCryptPasswordEncoder bean for password encoding.
         public PasswordEncoder passwordEncoder() {
                 return new BCryptPasswordEncoder();
         }
 
         @Bean
+        // Creates a SessionRegistry bean for managing user sessions.
         public SessionRegistry sessionRegistry() {
                 return new SessionRegistryImpl();
         }

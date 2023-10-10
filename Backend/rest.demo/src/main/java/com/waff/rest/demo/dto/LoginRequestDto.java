@@ -4,9 +4,11 @@ public class LoginRequestDto {
     private String username;
     private String password;
 
+    // DEFAULT CONSTRUCTOR
     public LoginRequestDto() {
     }
 
+    // GETTER AND SETTER
     public String getUsername() {
         return username;
     }

@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.security.web.context.HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
 
-
+//  Controller class handling user login and registration endpoints in the webshop backend.
 @RestController
 @CrossOrigin("*")
 public class LoginRegisterController {
@@ -48,6 +48,7 @@ public class LoginRegisterController {
     }
 
     @PostMapping("/login")
+    // Handles POST request for user login.
     public ResponseEntity<User> login(@RequestBody LoginRequestDto request, HttpServletRequest httpRequest) {
         try{
             // check credentials
@@ -75,6 +76,7 @@ public class LoginRegisterController {
     }
 
     @PostMapping("/register")
+    // Handles POST request for user registration.
     public ResponseEntity<User> register(@Valid @RequestBody RegisterRequestDto request, HttpServletRequest httpRequest) {
         User user = modelMapper.map(request, User.class);
         user.setUserType(UserType.user);

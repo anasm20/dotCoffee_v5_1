@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.waff.rest.demo.model.User;
 
+//  Repository interface for performing database operations related to the User entity.
 public interface UserRepository extends JpaRepository<User, String> {
     List<User> findByUserType(@NotBlank UserType userType);
 

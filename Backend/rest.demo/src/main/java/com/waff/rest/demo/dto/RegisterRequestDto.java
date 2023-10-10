@@ -20,9 +20,11 @@ public class RegisterRequestDto {
     @Size(min=2, max=64)
     private String password;
 
+    // DEFAULT CONSTRUCTOR
     public RegisterRequestDto() {
     }
 
+    // GETTER & SETTER
     public String getFirstname() {
         return firstname;
     }

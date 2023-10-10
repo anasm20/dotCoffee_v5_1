@@ -79,6 +79,7 @@ public class CartService {
      * @param cartId cartId
      * @return new created cart
      */
+    // adds an item from the user's cart and saves the updated cart to the database.
     public Optional<Cart> addItemToCart(@NotBlank String cartId, @NotBlank String productId) {
         Cart cart = cartRepository.findById(cartId).orElse(null);
         Product product = productRepository.findById(productId).orElse(null);
@@ -89,7 +90,7 @@ public class CartService {
         }
         return Optional.empty();
     }
-
+// Removes an item from the user's cart and saves the updated cart to the database.
     public Optional<Cart> removeItemToCart(@NotBlank String cartId, @NotBlank String productId) {
         Cart cart = cartRepository.findById(cartId).orElse(null);
         Product product = productRepository.findById(productId).orElse(null);
