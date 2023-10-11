@@ -134,8 +134,8 @@
             <input type="text" id="email" name="email" placeholder="Email" required>
             <label for="userType">User Type</label>
             <select id="userType" name="userType" required>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
+                <option value="ADMIN">Admin</option>
+                <option value="USER">User</option>
             </select>
             <label for="enabled">Enabled</label>
             <select id="enabled" name="enabled" required>
@@ -235,7 +235,7 @@
                 "ajax": {
                     "url": "http://127.0.0.1:8080/admin/user",
                     "headers": {
-                        "Authorization": "Basic " + btoa("admin:admin"),
+                        "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                         "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS, HEAD",
                         "Access-Control-Allow-Headers": "Content-Type, Authorization, Accept, X-Requested-With, remember-me"
@@ -287,7 +287,7 @@
                 url: "http://localhost:8080/admin/product/" + id,
                 type: "DELETE",
                 headers: {
-                    "Authorization": "Basic " + btoa("admin:admin"),
+                    "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 },
                 success: function (result) {
                     location.reload();
@@ -340,7 +340,7 @@
 
                 // Create the request headers
                 var headers = new Headers();
-                headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+                headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
 
                 // Create the fetch options
                 var options = {
@@ -436,7 +436,7 @@
 
             // Create the request headers
             var headers = new Headers();
-            headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+            headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
 
             // Create the fetch options
             var options = {
@@ -486,7 +486,7 @@
                     url: "http://localhost:8080/admin/user/" + id,
                     type: "DELETE",
                     headers: {
-                        "Authorization": "Basic " + btoa("admin:admin"),
+                        "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                     },
                     success: function (result) {
                         location.reload();
@@ -520,7 +520,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        "Authorization": "Basic " + btoa("admin:admin"),
+                        "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                     },
                     body: JSON.stringify({
                         firstname: $('#firstname').val(),
@@ -573,7 +573,7 @@
             $.ajax('http://localhost:8080/user/' + id, {
                 type: 'GET',
                 headers: {
-                    "Authorization" : "Basic " + btoa("admin:admin"),
+                    "Authorization" : "Bearer " + sessionStorage.getItem("user.token"),
                 },
                 success: function (data, status, xhr) {
                     // disable password edit
@@ -602,7 +602,7 @@
 
             // Create the request headers
             var headers = new Headers();
-            headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+            headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
             headers.append('Content-Type', 'application/json');
 
 

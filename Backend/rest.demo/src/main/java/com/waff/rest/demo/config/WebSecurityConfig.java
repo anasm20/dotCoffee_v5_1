@@ -109,7 +109,7 @@ public class WebSecurityConfig {
                                 .requestMatchers(HttpMethod.POST, "/product/search/**").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                 .anyRequest().authenticated();
 
                 http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);

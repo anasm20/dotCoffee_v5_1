@@ -86,7 +86,8 @@ $(document).ready(function () {
         "ajax": {
             "url": "http://127.0.0.1:8080/admin/user",
             "headers": {
-                "Authorization": "Basic " + btoa("admin:admin"),
+                
+                "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS, HEAD",
                 "Access-Control-Allow-Headers": "Content-Type, Authorization, Accept, X-Requested-With, remember-me"
@@ -191,7 +192,7 @@ function addProduct() {
 
         // Create the request headers
         var headers = new Headers();
-        headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+        headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
 
         // Create the fetch options
         var options = {
@@ -287,7 +288,7 @@ $(document).on('click', '#updateProductBtnForm', function () {
 
     // Create the request headers
     var headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+    headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
 
     // Create the fetch options
     var options = {
@@ -337,7 +338,7 @@ function deleteUser(id) {
             url: "http://localhost:8080/admin/user/" + id,
             type: "DELETE",
             headers: {
-                "Authorization": "Basic " + btoa("admin:admin"),
+                "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
             },
             success: function (result) {
                 location.reload();
@@ -371,7 +372,7 @@ function addUser() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": "Basic " + btoa("admin:admin"),
+                "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
             },
             body: JSON.stringify({
                 firstname: $('#firstname').val(),
@@ -424,7 +425,7 @@ function populateUserForm(id) {
     $.ajax('http://localhost:8080/user/' + id, {
         type: 'GET',
         headers: {
-            "Authorization" : "Basic " + btoa("admin:admin"),
+            "Authorization" : "Bearer " + sessionStorage.getItem("user.token"),
         },
         success: function (data, status, xhr) {
             // disable password edit
@@ -451,7 +452,7 @@ $(document).on('click', '#updateUserBtnForm', function () {
 
     // Create the request headers
     var headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+    headers.append('Authorization', 'Bearer ' + sessionStorage.getItem("user.token"));
     headers.append('Content-Type', 'application/json');
 
 

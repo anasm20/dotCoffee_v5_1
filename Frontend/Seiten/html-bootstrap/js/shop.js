@@ -114,7 +114,7 @@ const fetchCart = async () => {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": "Basic " + btoa("admin:admin"),
+                    "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 }
             }
         );
@@ -141,7 +141,7 @@ const addToCartServer = async (product) => {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": "Basic " + btoa("admin:admin"),
+                    "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 },
             }
         );
@@ -175,7 +175,7 @@ const removeFromCartServer = async (product) => {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': 'Basic ' + btoa('admin:admin'),
+                    'Authorization': 'Bearer ' + sessionStorage.getItem("user.token"),
                 }
             }
         );
