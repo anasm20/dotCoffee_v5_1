@@ -1,7 +1,7 @@
 package com.waff.rest.demo.controller;
 import java.util.List;
 import com.waff.rest.demo.dto.UserDto;
-import com.waff.rest.demo.model.UserType;
+import com.waff.rest.demo.model.UserRole;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,14 +76,13 @@ public class UserController {
 
     @GetMapping("/admin/user/user_type/{userType}")
     // Handles GET request to retrieve users by their user type.
-    public ResponseEntity<List<User>> findUsersByType(@PathVariable UserType userType) {
+    public ResponseEntity<List<User>> findUsersByType(@PathVariable UserRole userType) {
         return ResponseEntity.ok(userService.getUserByUserType(userType));
     }
 
-    @GetMapping
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/admin/user/role")
     // Handles GET request for finding all users with ROLE_ADMIN.
-    public List<User> findAll() {
-        return userService.getUsers();
+    public ResponseEntity<Void> isAdmin() {
+        return ResponseEntity.ok().build();
     }
 }

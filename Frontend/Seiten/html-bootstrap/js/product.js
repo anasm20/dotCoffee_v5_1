@@ -120,7 +120,7 @@ const createProductsDetails = (productData) => {
 
 
 const addToCart = (productId) => {
-    let isLogged = localStorage.getItem("user.id").trim();
+    let isLogged = sessionStorage.getItem("user.id").trim();
     if (isLogged !== undefined && isLogged !== "") {
 
         $.ajax({

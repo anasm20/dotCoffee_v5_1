@@ -4,7 +4,7 @@ import com.waff.rest.demo.dto.LoginRequestDto;
 import com.waff.rest.demo.dto.RegisterRequestDto;
 import com.waff.rest.demo.model.DaoUserDetails;
 import com.waff.rest.demo.model.User;
-import com.waff.rest.demo.model.UserType;
+import com.waff.rest.demo.model.UserRole;
 import com.waff.rest.demo.security.JwtUtils;
 import com.waff.rest.demo.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -59,6 +59,7 @@ public class LoginRegisterController {
             principal.setPassword(null);
             principal.setJwt(jwt);
             // authenticate context
+            System.out.println(principal.toString());
             SecurityContext securityContext = SecurityContextHolder.getContext();
             securityContext.setAuthentication(authenticate);
 
@@ -69,6 +70,7 @@ public class LoginRegisterController {
             session.setAttribute(SPRING_SECURITY_CONTEXT_KEY, securityContext);
             // add session to the response
             httpRequest.getSession(true);
+            System.out.println(session.getAttributeNames());
             return ResponseEntity.ok(principal.getUser());
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
@@ -79,7 +81,7 @@ public class LoginRegisterController {
     // Handles POST request for user registration.
     public ResponseEntity<User> register(@Valid @RequestBody RegisterRequestDto request, HttpServletRequest httpRequest) {
         User user = modelMapper.map(request, User.class);
-        user.setUserType(UserType.user);
+        user.setUserType(UserRole.USER);
         user.setEnabled(true);
         User created = userService.createUser(user).orElse(null);
         if(created != null) {

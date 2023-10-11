@@ -47,7 +47,7 @@ public class DbInit implements CommandLineRunner {
                         .setEmail("admin@test.com")
                         .setFirstname("Admin")
                         .setLastname("Admin")
-                        .setUserType(UserType.admin)
+                        .setUserType(UserRole.ADMIN)
                         .setPassword("admin")
                         .setEnabled(true);
 
@@ -56,7 +56,7 @@ public class DbInit implements CommandLineRunner {
                         .setEmail("user@test.com")
                         .setFirstname("Lars")
                         .setLastname("Müller")
-                        .setUserType(UserType.user)
+                        .setUserType(UserRole.USER)
                         .setPassword("user")
                         .setEnabled(true);
 

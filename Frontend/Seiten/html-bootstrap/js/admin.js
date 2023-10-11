@@ -2,7 +2,7 @@ $(document).ready(() => {
     /**
      * If the user is not an admin, redirect to index.html
      */
-    if (localStorage.getItem("user.type") != "admin") {
+    if (sessionStorage.getItem("user.type") != "admin") {
         window.location.href = "index.html";
     }
 })
@@ -11,12 +11,26 @@ $(document).ready(() => {
     /**
      * If the user is not an admin, redirect to index.html
      */
-    if (localStorage.getItem("user.type") != "admin") {
+    $.ajax({
+        url: "http://localhost:8080/admin/user/role",
+        type: "GET",
+        headers: {
+            "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
+        },
+        success: function (result) {
+            $("body").css("display", "block");
+        },
+        error: function (message) {
+            window.location.href = "index.html";
+        }
+    });
+    /*
+    if (sessionStorage.getItem("user.type") != "admin") {
         window.location.href = "index.html";
     } else {
         // Zeige die Seite, da der Benutzer ein Administrator ist
         $("body").css("display", "block");
-    }
+    }*/
 });
 
 
@@ -124,7 +138,7 @@ function deleteProduct(id) {
         url: "http://localhost:8080/admin/product/" + id,
         type: "DELETE",
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("user.token"),
+            "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
         },
         success: function (result) {
             location.reload();

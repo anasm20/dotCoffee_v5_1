@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +24,7 @@ public class JwtUtils {
   private String jwtSecret = "dsfdsfdsdslkjdfrtuecbc764i43fsdsze98fs87efs76wifs87doiufds87fdiu98grd9fd9fd";
 
   // Session exp. time
-  private int jwtExpirationMs = 999;
+  private int jwtExpirationMs = 999999999;
 
   // Generates a JWT token for the authenticated user.
   public String generateJwtToken(Authentication authentication) {
