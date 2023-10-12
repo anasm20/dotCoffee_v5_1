@@ -14,15 +14,18 @@ public class RegisterRequestDto {
     @Size(min=2, max=64)
     private String username;
 
+    // !!!!! TODO @ und .com validieren
     @Email
     private String email;
 
     @Size(min=2, max=64)
     private String password;
 
+    // DEFAULT CONSTRUCTOR
     public RegisterRequestDto() {
     }
 
+    // GETTER & SETTER
     public String getFirstname() {
         return firstname;
     }

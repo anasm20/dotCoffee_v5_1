@@ -16,6 +16,7 @@ public class OpenAPIConfig {
 
     @Bean
     public OpenAPI openAPI() {
+        // Builds and returns an OpenAPI object with specified title, description, and version
         return new OpenAPI()
                 .info(new Info().title("dotCoffee Backend API")
                         .description("dotCoffee Backend Application Server")

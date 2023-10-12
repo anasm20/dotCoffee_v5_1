@@ -105,7 +105,7 @@ $(document).on('click', '#remove-from-cart', function () {
 
 // fetch cart from server
 const fetchCart = async () => {
-    const userId = localStorage.getItem("user.id");
+    const userId = sessionStorage.getItem("user.id");
     try {
         const url = `http://127.0.0.1:8080/cart/user/${userId}`;
         let response = await fetch(
@@ -114,14 +114,14 @@ const fetchCart = async () => {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": "Basic " + btoa("admin:admin"),
+                    "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 }
             }
         );
         if (response.ok) {
             const { id, items } = await response.json();
-            localStorage.setItem("cart.id", id);
-            localStorage.setItem("cart.items", JSON.stringify(items));
+            sessionStorage.setItem("cart.id", id);
+            sessionStorage.setItem("cart.items", JSON.stringify(items));
             populateCartProducts();
         }
     } catch (e) {
@@ -130,8 +130,8 @@ const fetchCart = async () => {
 }
 
 const addToCartServer = async (product) => {
-    const cartId = localStorage.getItem("cart.id");
-    const userId = localStorage.getItem("user.id");
+    const cartId = sessionStorage.getItem("cart.id");
+    const userId = sessionStorage.getItem("user.id");
     const url = `http://127.0.0.1:8080/cart/${cartId}/product/${product.id}/add`;
 
     try {
@@ -141,14 +141,14 @@ const addToCartServer = async (product) => {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": "Basic " + btoa("admin:admin"),
+                    "Authorization": "Bearer " + sessionStorage.getItem("user.token"),
                 },
             }
         );
         if (response.ok) {
             console.log(response);
             const { items } = await response.json();
-            localStorage.setItem("cart.items", JSON.stringify(items));
+            sessionStorage.setItem("cart.items", JSON.stringify(items));
             cartProducts = items;
             populateCartProducts();
             showSuccessMessage('Produkt wurde zum Warenkorb hinzugefügt!');
@@ -163,8 +163,8 @@ const addToCartServer = async (product) => {
 }
 
 const removeFromCartServer = async (product) => {
-    const cartId = localStorage.getItem("cart.id");
-    const userId = localStorage.getItem("user.id");
+    const cartId = sessionStorage.getItem("cart.id");
+    const userId = sessionStorage.getItem("user.id");
 
     const url = `http://127.0.0.1:8080/cart/${cartId}/product/${product.id}/remove`;
 
@@ -175,13 +175,13 @@ const removeFromCartServer = async (product) => {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json',
-                    'Authorization': 'Basic ' + btoa('admin:admin'),
+                    'Authorization': 'Bearer ' + sessionStorage.getItem("user.token"),
                 }
             }
         );
         if (response.ok) {
             const { items } = await response.json();
-            localStorage.setItem("cart.items", JSON.stringify(items));
+            sessionStorage.setItem("cart.items", JSON.stringify(items));
             cartProducts = items;
             populateCartProducts();
             showSuccessMessage('Produkt wurde aus dem Warenkorb entfernt!');
@@ -198,7 +198,7 @@ const removeFromCartServer = async (product) => {
 
 
 const populateCartProducts = async () => {
-    const products = JSON.parse(localStorage.getItem("cart.items"));
+    const products = JSON.parse(sessionStorage.getItem("cart.items"));
     if (products.length === 0) {
         $('#cartProducts').append('<h4>Keine Produkte im Warenkorb!</h4>');
         return;

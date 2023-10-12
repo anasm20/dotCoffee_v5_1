@@ -27,9 +27,14 @@ public class ProductDto {
 
     private String quantity;
 
+    // DEFAULT CONSTRUCTOR
     public ProductDto() {
     }
 
+    // GETTER & SETTER
+    // Der Getter gibt den Wert einer Variablen zurück, während der Setter den Wert einer Variablen setzt. 
+    // Sie helfen, den Datenzugriff zu kontrollieren und die Dateninkapselung
+    
     public String getId() {
         return id;
     }

@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+//  Repository interface for performing database operations related to the Product entity.
+// Das ProductRepository Interface ist eine JPA-Repository-Schnittstelle, die mit der Datenbank kommuniziert
 public interface ProductRepository extends JpaRepository<Product, String> {
     List<Product> findByTitelIsContainingIgnoreCase(@NotBlank String titel);
     List<Product> findByCategory_Id(@NotBlank String categoryId);

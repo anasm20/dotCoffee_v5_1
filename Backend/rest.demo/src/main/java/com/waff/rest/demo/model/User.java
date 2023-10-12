@@ -28,8 +28,9 @@ public class User {
     @Column(name = "email_address", unique = true)
     private String email;
 
-    @Column(name = "user_type", nullable = true)
-    private UserType userType;
+    @Column(name = "role", nullable = true)
+    @Enumerated(EnumType.STRING)
+    private UserRole userType;
 
     @Size(min=2, max=64)
     @Column(name = "password")
@@ -41,7 +42,7 @@ public class User {
     private String jwt;
 
     public User() {
-        userType = UserType.user;
+        userType = UserRole.USER;
     }
 
     public String getId() {
@@ -89,11 +90,11 @@ public class User {
         return this;
     }
 
-    public UserType getUserType() {
+    public UserRole getUserType() {
         return userType;
     }
 
-    public User setUserType(UserType userType) {
+    public User setUserType(UserRole userType) {
         this.userType = userType;
         return this;
     }

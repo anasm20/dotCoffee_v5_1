@@ -68,7 +68,7 @@ $('#btn-register').click((e) => {
             contentType: 'application/json; charset=utf-8',
             success: function (result, status, xhr) {
                 if(status === 'success'){
-                    localStorage.setItem("register.successful", "true")
+                    sessionStorage.setItem("register.successful", "true")
                     window.location = "./login.html";
                     $('#register-error-alert').hide()
                 } else {

@@ -22,15 +22,17 @@ public class StorageConfig {
         return location;
     }
 
+    // Gets the absolute path of the folder location for storing image files.
     public Path getLocationPath() {
         return Path.of(location).toAbsolutePath().normalize();
     }
-
+    // Gets the pattern for mapping URLs to the stored image files.
     public String getLocationPathPattern() {
         return "/" + location + "/**";
     }
-
+    // Gets the resource location URL for accessing stored image files.
     public String getResourceLocation() {
+        // Constructs a resource location URL using the absolute path of the storage location
         return "file:/" + getLocationPath() + "/";
     }
 }

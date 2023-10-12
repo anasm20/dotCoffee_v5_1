@@ -1,14 +1,14 @@
 function updateUserView() {
-    var userType = localStorage.getItem('user.type');
+    var UserRole = sessionStorage.getItem('user.type');
     var cssCode = '';
 
-    if (userType === 'admin') {
-        cssCode = ".bi-person { display:none; }" + ".usertxt {display: none;}";
-    } else if (userType === 'user') {
+    if (UserRole === 'ADMIN') {
+        cssCode = ".bi-person { display:none; }" + ".usertxt {display: none;}" + ".userpage {display:none;}";
+    } else if (UserRole === 'USER') {
         cssCode = ".bi-person { display:none; }" + ".admintxt { display: none;}" + ".admindashboard {display:none;}";
     } else {
         cssCode = ".bi-bag-dash { display:none; }" +
-            ".bi-box-arrow-in-right { display: none; }" + ".admintxt { display: none;}" + ".usertxt {display: none;}" + ".admindashboard {display:none;}";
+            ".bi-box-arrow-in-right { display: none; }" + ".admintxt { display: none;}" + ".usertxt {display: none;}" + ".admindashboard {display:none;}" + ".userpage {display:none;}";
     }
 
     var styleElement = document.createElement('style');
@@ -24,8 +24,8 @@ function updateUserView() {
 }
 
 function logoutStorage() {
-    localStorage.clear();
-    console.log("localStorage - flushed");
+    sessionStorage.clear();
+    console.log("sessionStorage - flushed");
 }
 
 document.addEventListener('DOMContentLoaded', function () {

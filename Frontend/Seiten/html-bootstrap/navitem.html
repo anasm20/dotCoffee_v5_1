@@ -54,7 +54,10 @@
                                 <a href="./impressum.html" class="nav-link" style="color: #fff;">Impressum</a>
                             </li>
                             <li class="nav-item admindashboard">
-                                <a href="./admin.html" class="nav-link" style="color: #fff;">Dashboard</a>
+                                <a href="./admin.html" class="nav-link" style="color: #fff;">Admin Dashboard</a>
+                            </li>
+                            <li class="nav-item userpage">
+                                <a href="./userpage.html" class="nav-link" style="color: #fff;">User Page</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav row align-items-center">
@@ -132,7 +135,7 @@
 </body>
 <script>
     $(document).ready(function () {
-        if (localStorage.getItem("user.type") === "admin") {
+        if (sessionStorage.getItem("user.type") === "admin") {
             $(".admindashboard").show();
         } else {
             $(".admindashboard").hide();

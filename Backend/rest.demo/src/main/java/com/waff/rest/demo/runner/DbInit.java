@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+// CommandLineRunner implementation for initializing the database with sample data during application startup.
 public class DbInit implements CommandLineRunner {
 
     private final UserService userService;
@@ -24,6 +25,7 @@ public class DbInit implements CommandLineRunner {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+//     Constructor to initialize the DbInit class with required services and components.
     public DbInit(UserService userService, CategoryService categoryService, ProductService productService, CartService cartService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.categoryService = categoryService;
@@ -45,7 +47,7 @@ public class DbInit implements CommandLineRunner {
                         .setEmail("admin@test.com")
                         .setFirstname("Admin")
                         .setLastname("Admin")
-                        .setUserType(UserType.admin)
+                        .setUserType(UserRole.ADMIN)
                         .setPassword("admin")
                         .setEnabled(true);
 
@@ -54,7 +56,7 @@ public class DbInit implements CommandLineRunner {
                         .setEmail("user@test.com")
                         .setFirstname("Lars")
                         .setLastname("Müller")
-                        .setUserType(UserType.user)
+                        .setUserType(UserRole.USER)
                         .setPassword("user")
                         .setEnabled(true);
 

@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
+// DTO (Data Transfer Object) verwendet wird, um Daten zwischen verschiedenen Teilen einer Anwendung zu übertragen, 
+// insbesondere zwischen Client und Server. DTOs enthalten nur Daten, keine Logik,
+//  und erleichtern so die effiziente Datenübertragung in komplexen Anwendungen.
 
 public class CartDto {
     @NotNull
@@ -18,11 +21,14 @@ public class CartDto {
 
 
     @Pattern(regexp = "(\\d+,\\d{1,2})")
+     // Regular expression for validating costs with format: XX,XX where X is a digit.
     private String costs;
 
 
     public CartDto() {
     }
+
+    // GETTER & SETTER
 
     public String getId() {
         return id;
@@ -52,6 +58,7 @@ public class CartDto {
     }
 
     public String getCosts() {
+        // Gets the total costs of the products in the cart as a formatted string (XX,XX).
         if(products != null && !products.isEmpty()) {
             double dblTotal = products.stream()
                     .map(Product::getPrice)
@@ -65,6 +72,7 @@ public class CartDto {
         return "0,00";
     }
 
+    // Sets the total costs of the products in the cart.
     public CartDto setCosts(String costs) {
         this.costs = costs;
         return this;

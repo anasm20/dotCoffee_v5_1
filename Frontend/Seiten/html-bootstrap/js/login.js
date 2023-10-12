@@ -1,7 +1,7 @@
-let isRegisterSuccessful = localStorage.getItem("register.successful");
+let isRegisterSuccessful = sessionStorage.getItem("register.successful");
 if (isRegisterSuccessful !== undefined && isRegisterSuccessful === 'true') {
     $('#register-success-alert').show()
-    localStorage.removeItem("register.successful")
+    sessionStorage.removeItem("register.successful")
 }
 
 $('#btn-login').click((e) => {
@@ -40,11 +40,11 @@ $('#btn-login').click((e) => {
             }
         }).then(result => {
             console.log(result);
-            localStorage.setItem("user.id", result.id);
-            localStorage.setItem("user.firstname", result.firstname);
-            localStorage.setItem("user.lastname", result.lastname);
-            localStorage.setItem("user.type", result.userType);
-            localStorage.setItem("user.token", result.jwt);
+            sessionStorage.setItem("user.id", result.id);
+            sessionStorage.setItem("user.firstname", result.firstname);
+            sessionStorage.setItem("user.lastname", result.lastname);
+            sessionStorage.setItem("user.type", result.userType);
+            sessionStorage.setItem("user.token", result.jwt);
             window.location = "./index.html";
             document.cookie = "JSESSIONID=" + result.sessionId;
         }

@@ -3,7 +3,7 @@ package com.waff.rest.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.waff.rest.demo.model.UserType;
+import com.waff.rest.demo.model.UserRole;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -27,7 +27,7 @@ public class UserService {
 
 
     /**
-     * Get all users in the database.
+     * search all users in the database.
      * @return all users in the database.
      */
     public List<User> getUsers() {
@@ -35,17 +35,17 @@ public class UserService {
     }
 
     /**
-     * Get all user by giving userType.
+     * search all user by giving userType.
      * @param usertype usertype
      * @return all user by giving userType.
      */
-    public List<User> getUserByUserType(UserType usertype) {
+    public List<User> getUserByUserType(UserRole usertype) {
         return userRepository.findByUserType(usertype);
     }
 
 
     /**
-     * Get user by giving userId.
+     * search user by giving userId.
      * @param id userId
      * @return user by giving userId.
      */

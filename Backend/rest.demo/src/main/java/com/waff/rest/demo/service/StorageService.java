@@ -28,13 +28,20 @@ public class StorageService {
             Files.createDirectories(this.location);
         }
     }
-
+    
+    
+    
     public void storeDocument(MultipartFile file, String name) {
+        // Path resolve = this.location.resolve(name); - Es erstellt den Speicherpfad für die Datei mit dem gegebenen Namen.
         Path resolve = this.location.resolve(name);
         logger.info("File name: {}", file.getOriginalFilename());
+        // logger.info("File name: {}", file.getOriginalFilename()); - Es protokolliert den Originalnamen der Datei.
         if(!Files.exists(resolve)) {
+            // if(!Files.exists(resolve)) { ... } - Überprüft, ob die Datei bereits existiert.
             try {
                 Files.copy(file.getInputStream(), resolve);
+                // Files.copy(file.getInputStream(), resolve); - Wenn die Datei nicht existiert, wird sie 
+                // von der Eingabequelle in den Speicherpfad kopiert.
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }

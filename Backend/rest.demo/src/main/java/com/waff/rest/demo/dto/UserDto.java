@@ -1,6 +1,6 @@
 package com.waff.rest.demo.dto;
 
-import com.waff.rest.demo.model.UserType;
+import com.waff.rest.demo.model.UserRole;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,18 +30,20 @@ public class UserDto {
     private String email;
 
     @NotNull
-    @Column(name = "user_type")
-    private UserType userType;
+    @Column(name = "ROLE")
+    private UserRole userType;
 
     @Size(min=2, max=64)
     private String password;
 
     private boolean enabled = true;
 
+    // Default constructor. Sets the user type to admin by default
     public UserDto() {
-        this.userType = UserType.admin;
+        this.userType = UserRole.USER;
     }
 
+    // GETTER & SETTER
     public String getId() {
         return id;
     }
@@ -89,11 +91,11 @@ public class UserDto {
         return this;
     }
 
-    public UserType getUserType() {
+    public UserRole getUserType() {
         return userType;
     }
 
-    public UserDto setUserType(UserType userType) {
+    public UserDto setUserType(UserRole userType) {
         this.userType = userType;
         return this;
     }

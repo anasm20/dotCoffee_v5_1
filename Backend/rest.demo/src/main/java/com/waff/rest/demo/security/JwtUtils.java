@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -15,14 +14,19 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
+// Utility class for handling JSON Web Tokens (JWT) in the application.
 @Component
 public class JwtUtils {
+  // json web token
+  // erstellt eine nachricht auf der website falls der login nicht geklappt hat als json
   private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
   private String jwtSecret = "dsfdsfdsdslkjdfrtuecbc764i43fsdsze98fs87efs76wifs87doiufds87fdiu98grd9fd9fd";
 
-  private int jwtExpirationMs = 999;
+  // Session exp. time
+  private int jwtExpirationMs = 999999999;
 
+  // Generates a JWT token for the authenticated user.
   public String generateJwtToken(Authentication authentication) {
 
     DaoUserDetails userPrincipal = (DaoUserDetails) authentication.getPrincipal();
@@ -38,12 +42,13 @@ public class JwtUtils {
   private Key key() {
     return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
   }
-
+  
+  // Extracts the username from the given JWT token.
   public String getUserNameFromJwtToken(String token) {
     return Jwts.parserBuilder().setSigningKey(key()).build()
                .parseClaimsJws(token).getBody().getSubject();
   }
-
+  // Validates the given JWT token.
   public boolean validateJwtToken(String authToken) {
     try {
       Jwts.parserBuilder().setSigningKey(key()).build().parse(authToken);
