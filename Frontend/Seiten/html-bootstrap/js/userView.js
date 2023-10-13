@@ -1,10 +1,10 @@
 function updateUserView() {
-    var userType = sessionStorage.getItem('user.type');
+    var UserRole = sessionStorage.getItem('user.type');
     var cssCode = '';
 
-    if (userType === 'admin') {
+    if (UserRole === 'ADMIN') {
         cssCode = ".bi-person { display:none; }" + ".usertxt {display: none;}" + ".userpage {display:none;}";
-    } else if (userType === 'user') {
+    } else if (UserRole === 'USER') {
         cssCode = ".bi-person { display:none; }" + ".admintxt { display: none;}" + ".admindashboard {display:none;}";
     } else {
         cssCode = ".bi-bag-dash { display:none; }" +
