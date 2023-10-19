@@ -37,7 +37,7 @@
     </div>
     <br>
 
-    
+
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -75,13 +75,14 @@
                     <label for="searchInput" class="form-label me-2">
                         <i class="bi bi-search-heart-fill" style="font-size: 24px; color: #b15602;"></i>
                     </label>
-                    <input class="form-control form-control-lg" type="search" placeholder="Geben Sie einen Produktnamen ein" aria-label="Search" id="searchInput">
+                    <input class="form-control form-control-lg" type="search"
+                        placeholder="Geben Sie einen Produktnamen ein" aria-label="Search" id="searchInput">
                 </form>
             </div>
         </div>
     </div>
-    
-    
+
+
     <!-- Products -->
     <div class="container mt-4">
         <div class="row d-flex" id="products" style="justify-content: center;">
@@ -89,7 +90,7 @@
         </div>
     </div>
 
-    
+
     <br>
     <div class="container">
         <div class="row">
@@ -103,5 +104,26 @@
         </div>
     </div>
 </body>
+<script>
+    // Warte, bis das DOM vollständig geladen ist
+    document.addEventListener('DOMContentLoaded', function () {
+        // Überprüfe die aktuelle URL
+        if (window.location.href.includes('shop.html')) {
+
+            var cssCode = "#add-to-cart { display:none; }";
+
+            var styleElement = document.createElement('style');
+            styleElement.type = 'text/css';
+
+            if (styleElement.styleSheet) {
+                styleElement.styleSheet.cssText = cssCode;
+            } else {
+                styleElement.appendChild(document.createTextNode(cssCode));
+            }
+
+            document.head.appendChild(styleElement);
+        }
+    });
+</script>
 
 </html>
