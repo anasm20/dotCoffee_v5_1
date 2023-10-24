@@ -1,4 +1,4 @@
-const host = 'http://localhost:8080'
+let host = 'http://localhost:8080'
 
 
 let products = [];
@@ -26,17 +26,49 @@ const createProductCard = (product) => {
           <p class="card-text">${product.description.substring(0, 20)}...</p>
             <p class="card-text" style="color: #b15602;">Preis: ${product.price}€</p>
           <a class="btn btn-primary" style="margin-right: 10px;" id="add-to-cart" type="button" pid="${product.id}">In den Warenkorb</a>
+          <a class="btn btn-primary" style="margin-right: 10px;" id="go-to-details" type="button" pid="${product.id}">Details</a>
         </div>
       </div>
     `);
     return productCard;
 };
 
+// MAIN FUNCTION
+// const populateProducts = async () => {
+//     const products = await getAllProducts();
+//     const productCards = products.map((product) => createProductCard(product));
+//     $('#products').append(productCards);
+// };
+
 const populateProducts = async () => {
+    // Produkt-ID aus der URL extrahieren
+    const productId = getProductByIdFromUrl();
+
+    // Alle Produkte abrufen
     const products = await getAllProducts();
-    const productCards = products.map((product) => createProductCard(product));
+
+    // Wenn eine Produkt-ID in der URL vorhanden ist, filtere die Produkte
+    let filteredProducts = products;
+    if (productId) {
+        filteredProducts = filterProductsById(products, productId);
+    }
+
+    // Produktkarten für gefilterte Produkte erstellen und an das DOM anhängen
+    const productCards = filteredProducts.map(product => createProductCard(product));
     $('#products').append(productCards);
 };
+
+const getProductByIdFromUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    return productId;
+};
+
+const filterProductsById = (products, productId) => {
+    return products.filter(product => product.id === productId);
+};
+
+
 
 const getAllCategories = async () => {
     try {
@@ -86,6 +118,13 @@ const createCartProductCard = (product) => {
     `);
     return productCard;
 };
+
+
+$(document).on('click', '#go-to-details', function () {
+    const pid = $(this).attr('pid'); // Nehmen Sie die Product ID auf dieselbe Weise wie im vorherigen Code
+    const product = products.find((product) => product.id == pid);
+    window.location.href = 'details.html?id=' + pid;
+});
 
 
 // on ready click listener to add to cart button

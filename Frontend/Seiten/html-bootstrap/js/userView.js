@@ -8,7 +8,9 @@ function updateUserView() {
         cssCode = ".bi-person { display:none; }" + ".admintxt { display: none;}" + ".admindashboard {display:none;}";
     } else {
         cssCode = ".bi-bag-dash { display:none; }" +
-            ".bi-box-arrow-in-right { display: none; }" + ".admintxt { display: none;}" + ".usertxt {display: none;}" + ".admindashboard {display:none;}" + ".userpage {display:none;}";
+            ".bi-box-arrow-in-right { display: none; }" + ".admintxt { display: none;}" + 
+            ".usertxt {display: none;}" + ".admindashboard {display:none;}" 
+            + ".userpage {display:none;}" + "#add-to-cart {display: none;}";
     }
 
     var styleElement = document.createElement('style');
